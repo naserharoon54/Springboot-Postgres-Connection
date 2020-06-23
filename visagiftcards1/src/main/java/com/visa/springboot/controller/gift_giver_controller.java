@@ -37,10 +37,10 @@ public class gift_giver_controller {
 	
 	// get gift givers by id
 	  @GetMapping("/gift_givers/{userId}")
-	    public ResponseEntity<gift_givers> getEmployeeById(@PathVariable(value = "userId") Long userId)
+	    public ResponseEntity<gift_givers> getGiftGIverById(@PathVariable(value = "userId") Long userId)
 	        throws ResourceNotFoundException {
 	        gift_givers giftGiver = giftGiverRepository.findById(userId)
-	          .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + userId));
+	          .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 	        return ResponseEntity.ok().body(giftGiver);
 	    }	 
 	
@@ -54,10 +54,10 @@ public class gift_giver_controller {
 	// update gift giver
 	    
 	    @PutMapping("/gift_givers/{userId}")
-	    public ResponseEntity<gift_givers> updateEmployee(@PathVariable(value = "userId") Long userId,
+	    public ResponseEntity<gift_givers> updateGiftGiver(@PathVariable(value = "userId") Long userId,
 	         @Valid @RequestBody gift_givers giftGiverDetails) throws ResourceNotFoundException {
 	        gift_givers giftGiver = giftGiverRepository.findById(userId)
-	        .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + userId));
+	        .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 
 	        giftGiver.setGiftCampaignId(giftGiverDetails.getGiftCampaignId());
 	    
@@ -73,7 +73,7 @@ public class gift_giver_controller {
 	    public Map<String, Boolean> deleteEmployee(@PathVariable(value = "userId") Long userId)
 	         throws ResourceNotFoundException {
 	        gift_givers giftGiver = giftGiverRepository.findById(userId)
-	       .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + userId));
+	       .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 
 	        giftGiverRepository.delete(giftGiver);
 	        Map<String, Boolean> response = new HashMap<>();
