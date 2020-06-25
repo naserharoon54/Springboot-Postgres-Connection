@@ -57,7 +57,7 @@ public class user_info_controller {
 	        user_info userInfo = userInfoRepository.findById(userId)
 	        .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 
-	        userInfo.setUserId(userDetails.getUserId());
+	        //userInfo.setUserId(userDetails.getUserId());
 	        userInfo.setFirstName(userDetails.getFirstName());
 	        userInfo.setLastName(userDetails.getLastName());
 	        userInfo.setDob(userDetails.getDob());

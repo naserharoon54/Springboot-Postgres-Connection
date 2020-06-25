@@ -3,9 +3,11 @@ package com.visa.springboot.model;
 
 import java.sql.Date;
 import java.util.Arrays;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "user_info")
 public class user_info {
 		
-	private String userId;	
+	private String userId=UUID.randomUUID().toString();
 	private String firstName;	
 	private String lastName;
 	private Date dob;
@@ -24,9 +26,8 @@ public class user_info {
 	public user_info() {
 	}
 
-	public user_info(String userId, String firstName, String lastName, Date dob, char[] telephone, String email, String password) {
+	public user_info(String firstName, String lastName, Date dob, char[] telephone, String email, String password) {
 		super();
-		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = dob;
