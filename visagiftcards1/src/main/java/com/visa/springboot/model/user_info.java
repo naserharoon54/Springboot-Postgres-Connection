@@ -18,17 +18,21 @@ public class user_info {
 	private String lastName;
 	private Date dob;
 	private char[] telephone = new char[10];
+	private String email;
+	private String password;
 	
 	public user_info() {
 	}
 
-	public user_info(String userId, String firstName, String lastName, Date dob, char[] telephone) {
+	public user_info(String userId, String firstName, String lastName, Date dob, char[] telephone, String email, String password) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = dob;
 		this.telephone = telephone;
+		this.email = email;
+		this.password = password;
 	}
 
 	
@@ -37,7 +41,6 @@ public class user_info {
 	public String getUserId() {
 		return userId;
 	}
-
 
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -83,13 +86,31 @@ public class user_info {
 		this.telephone = telephone;
 	}
 	
+	@Column(name = "email")
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	@Column(name = "password")
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	@Override
 	public String toString() {
 		return "user_info [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob
-				+ ", telephone=" + Arrays.toString(telephone) + "]";
+				+ ", telephone=" + Arrays.toString(telephone) + ", email=" + email + ", password=" + password + "]";
 	}
-
-
+	
+	
 
 
 	

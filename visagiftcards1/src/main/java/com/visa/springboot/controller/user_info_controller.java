@@ -62,6 +62,8 @@ public class user_info_controller {
 	        userInfo.setLastName(userDetails.getLastName());
 	        userInfo.setDob(userDetails.getDob());
 	        userInfo.setTelephone(userDetails.getTelephone());
+	        userInfo.setEmail(userDetails.getEmail());
+	        userInfo.setPassword(userDetails.getPassword());
 	    
 	        final user_info updatedUserInfo = userInfoRepository.save(userInfo);
 	        return ResponseEntity.ok(updatedUserInfo);
