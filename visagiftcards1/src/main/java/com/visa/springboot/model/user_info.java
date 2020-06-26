@@ -1,6 +1,8 @@
 package com.visa.springboot.model;
 
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.util.Arrays;
 import java.util.UUID;
@@ -34,6 +36,7 @@ public class user_info {
 		this.telephone = telephone;
 		this.email = email;
 		this.password = password;
+		
 	}
 
 	
@@ -110,6 +113,11 @@ public class user_info {
 		return "user_info [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob
 				+ ", telephone=" + Arrays.toString(telephone) + ", email=" + email + ", password=" + password + "]";
 	}
+	
+	
+  
+	
+	
 	
 	
 
