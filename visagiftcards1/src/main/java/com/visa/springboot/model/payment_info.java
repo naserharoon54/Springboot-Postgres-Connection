@@ -14,14 +14,14 @@ public class payment_info {
 	private String userId;	
 	private String cardNumber;	
 	private String lastFourDigits;
-	private Date expiryDate;
+	private String expiryDate;
 	private String cvv;
 	
 	public payment_info() {}
 	
-	public payment_info(String userId, String cardNumber, String lastFourDigits, Date expiryDate, String cvv) {
+	public payment_info(String cardNumber, String lastFourDigits, String expiryDate, String cvv) {
 		super();
-		this.userId = userId;
+		//this.userId = userId;
 		this.cardNumber = cardNumber;
 		this.lastFourDigits = lastFourDigits;
 		this.expiryDate = expiryDate;
@@ -57,11 +57,11 @@ public class payment_info {
 	}
 	
 	@Column(name="expirydate")
-	public Date getExpiryDate() {
+	public String getExpiryDate() {
 		return expiryDate;
 	}
 	
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 	

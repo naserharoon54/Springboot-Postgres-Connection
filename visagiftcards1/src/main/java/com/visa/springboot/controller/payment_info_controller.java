@@ -46,27 +46,30 @@ public class payment_info_controller {
 	    }	 
 	
 	// save a user's payment info 
-	    @PostMapping("/payment_info")
-	    public payment_info createPaymentInfo(@Valid @RequestBody payment_info paymentInfo) {
+	    @PostMapping("/payment_info/{userId}")
+	    public payment_info createPaymentInfo(@PathVariable(value = "userId") String userId, 
+	    		@Valid @RequestBody payment_info paymentInfo) {
+	    	
+	    	paymentInfo.setUserId(userId);
 	        return paymentInfoRepository.save(paymentInfo);
 	    }	    
 	    
-	// update a user's payment info	    
-	    @PutMapping("/payment_info/{userId}")
-	    public ResponseEntity<payment_info> updatePaymentInfo(@PathVariable(value = "userId") String userId,
-	         @Valid @RequestBody payment_info paymentInfoDetails) throws ResourceNotFoundException {
-	        payment_info paymentInfo = paymentInfoRepository.findById(userId)
-	        .orElseThrow(() -> new ResourceNotFoundException("Payment Info not found for this id :: " + userId));
-
-	        paymentInfo.setUserId(paymentInfoDetails.getUserId());
-	        paymentInfo.setCardNumber(paymentInfoDetails.getCardNumber());
-	        paymentInfo.setCvv(paymentInfoDetails.getCvv());
-	        paymentInfo.setLastFourDigits(paymentInfoDetails.getLastFourDigits());
-	        paymentInfo.setExpiryDate(paymentInfoDetails.getExpiryDate());
-	    
-	        final payment_info updatedPaymentInfo = paymentInfoRepository.save(paymentInfo);
-	        return ResponseEntity.ok(updatedPaymentInfo);
-	    }	    
+//	// update a user's payment info	    
+//	    @PutMapping("/payment_info/{userId}")
+//	    public ResponseEntity<payment_info> updatePaymentInfo(@PathVariable(value = "userId") String userId,
+//	         @Valid @RequestBody payment_info paymentInfoDetails) throws ResourceNotFoundException {
+//	        payment_info paymentInfo = paymentInfoRepository.findById(userId)
+//	        .orElseThrow(() -> new ResourceNotFoundException("Payment Info not found for this id :: " + userId));
+//
+//	        paymentInfo.setUserId(paymentInfoDetails.getUserId());
+//	        paymentInfo.setCardNumber(paymentInfoDetails.getCardNumber());
+//	        paymentInfo.setCvv(paymentInfoDetails.getCvv());
+//	        paymentInfo.setLastFourDigits(paymentInfoDetails.getLastFourDigits());
+//	        paymentInfo.setExpiryDate(paymentInfoDetails.getExpiryDate());
+//	    
+//	        final payment_info updatedPaymentInfo = paymentInfoRepository.save(paymentInfo);
+//	        return ResponseEntity.ok(updatedPaymentInfo);
+//	    }	    
 	    
 	   
 	    

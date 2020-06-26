@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.visa.springboot.exception.ResourceNotFoundException;
-import com.visa.springboot.model.payment_info;
+//import com.visa.springboot.model.payment_info;
 import com.visa.springboot.model.user_info;
 import com.visa.springboot.repository.payment_info_repository;
 import com.visa.springboot.repository.user_info_repository;
@@ -52,9 +52,9 @@ public class user_info_controller {
 	// save a user 
 	    @PostMapping("/user_info")
 	    public user_info createUser(@Valid @RequestBody user_info userInfo) {
-	        payment_info paymentInfo = new payment_info();
-	        paymentInfo.setUserId(userInfo.getUserId());
-	        paymentInfoRepository.save(paymentInfo);
+//	        payment_info paymentInfo = new payment_info();
+//	        paymentInfo.setUserId(userInfo.getUserId());
+//	        paymentInfoRepository.save(paymentInfo);
 	    	return userInfoRepository.save(userInfo);
 	    }	    
 	    
